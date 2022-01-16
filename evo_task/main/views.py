@@ -22,6 +22,6 @@ def index(request):
 
 
 def show_list(request):
-    persons = Persons.objects.all()
+    persons = Persons.objects.order_by('-date')
     data = {'persons': persons}
     return render(request, 'main/list.html', data)
