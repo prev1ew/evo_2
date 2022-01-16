@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}Список людей, с которыми поздоровались{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h3> Список людей, с которыми поздоровались:</h3><br>
+        {% if persons %}
+            {% for el in persons %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.name }} в {{el.date}}</h3>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p> Ещё нету людей, с которыми поздоровались</p>
+        {% endif %}
+    </div>
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}Hello App{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>Этот сервис может c тобой поздороваться =)</h1>
+        <p>Все что нужно для этого - ввести своё имя ниже и нажать на кнопку</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name }} <br>
+
+<!--            <input type="text" placeholder="Ваше имя" class="form-control"><br>-->
+<!--            <span>{{ result }}</span>-->
+            <button class="btn btn-success" type="submit">Поздороваться</button>
+        </form>
+
+        {% if result %}
+        <br>
+        <div class="alert alert-warning">
+            <h3>{{ result }}</h3>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
